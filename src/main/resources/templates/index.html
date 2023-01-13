@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="ISO-8859-1">
+
+    <title>Employee</title>
+
+    <link rel="stylesheet"
+
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+
+          crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container my-2" align="center">
+    <h3>JOB LIST</h3>
+    <table style="width:80%" border="1" class = "table table-striped table-responsive-md">
+    <thead class="thead-dark">
+    <tr>
+
+    <th>Name</th>
+
+    <th>Position</th>
+    <th>Status</th>
+    <th>Created by</th>
+
+    <th>Action</th>
+
+    </tr>
+
+</thead>
+
+    <tbody>
+
+<tr th:each="form:${allemplist}">
+    <td th:text="${form.name}"></td>
+    <td th:text="${form.position}"></td>
+    <td th:text="${form.status}"></td>
+    <td th:text="${form.createdby}"></td>
+    <td> <a th:href="@{/showFormForUpdate/{id}(id=${form.id})}" class="btn btn-success">Update</a>
+
+    <a th:href="@{/deleteJOBS/{id}(id=${form.id})}" class="btn btn-danger">Delete</a>
+
+    </td>
+
+    </tr>
+
+</tbody>
+
+</table>
+    <a th:href="@{/addnew}" class="btn btn-success btn-sm mb-3" >Add JOB</a>
+
+</div>
+
+</body>
+
+</html>
