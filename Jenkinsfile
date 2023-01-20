@@ -29,13 +29,5 @@ pipeline
         }
     }
 
-    post
-    {
-
-    	always
-    	{
-    		emailext body: 'Execution completed', subject: 'Pipeline Status', to: 'mailpoonam2002@gmail.com'
-    	}
-
-    }
+    
 }
